@@ -5,6 +5,7 @@
 Ce projet a pour objectif d'évaluer les compétences intrinsèques des candidats de Automata pour intervenir sur nos projets Back-end **Java** de manière *autonome*.
 
 Les compétences mesurées sont : 
+
 1. Utilisation de **Maven** en multi module projects
 2. Compréhension des cycles de vies des produits
 3. Réalisation de tests unitaires et d'intégrations
@@ -22,10 +23,10 @@ Nous vous demandons de faire attention à la qualité et de réaliser ces tâche
 Afin de réaliser le test, veuillez *forker* le projet puis nous donner accès à ce repository avec vos modifications.
 
 Pour rendre le projet, veuillez notifier par mail les personnes suivantes : 
-    - remi.gelibert@akt.io
-    - alexis.segura@akt.io
-    - dorian.henault@akt.io
-    - damien.lenci@akt.io
+* remi.gelibert@akt.io
+* alexis.segura@akt.io
+* dorian.henault@akt.io
+* damien.lenci@akt.io
 
 ---
 
@@ -39,10 +40,10 @@ On attend de vous un regard critique sur le projet. Il y a de nombreux problème
 dans les dépendances, au niveau de la sécurité...
 
 Le projet est un projet Maven multi-modules composé de : 
-    - `automata-commons` (contient des éléments de la couche commune).
-    - `algorithm-library` (contient des algorithmes utiles).
-    - `user-service` (API pour la ressource user).
-    - `post-service` (API pour la ressource post).
+* `automata-commons` (contient des éléments de la couche commune).
+* `algorithm-library` (contient des algorithmes utiles).
+* `user-service` (API pour la ressource user).
+* `post-service` (API pour la ressource post).
 
 `user-service` et `post-service` sont déployés de manière indépendante et ont des bases de données séparées.
 
@@ -59,33 +60,33 @@ Vos missions sont :
 
 0. Prenez en main le projet.
 1. Vous débutez par le projet `algorithm-library`.
-    - Implémentez l'algorithme de décryption.
+    1. Implémentez l'algorithme de décryption.
 2. Vous continuez par le `user-service`. 
-    - Vous remarquez que les mots de passe des utilisateurs sont stockés en clair dans la base. Encryptez-les.
+    * Vous remarquez que les mots de passe des utilisateurs sont stockés en clair dans la base. Encryptez-les.
       Votre CTO souhaite que le service d'encryption soit un bean dans le context Spring. 
-    - Vous remarquez qu'aucune verification n'est faite sur les données de l'utilisateur alors que tous les champs sont obligatoires.
+    * Vous remarquez qu'aucune verification n'est faite sur les données de l'utilisateur alors que tous les champs sont obligatoires.
    Modifiez le code pour vérifier le format des données. Réutilisez un maximum de l'existant. 
-    - Lancez le service en local et verifiez que vous arrivez bien à accéder au Swagger.
+    * Lancez le service en local et verifiez que vous arrivez bien à accéder au Swagger.
 3. Vous continuez sur le `post-service`.
-    - Faites compiler le projet (`mvn compile` OK).
-    - Faites le nécessaire pour que les deux endpoints du service soient fonctionnels.
-    - BONUS : Ajoutez un endpoint REST pour supprimer un post par son ID. La suppresion doit être logique et non physique.
-    - Lancez le service en local et vérifiez que vous arrivez bien à accéder au Swagger.
+    * Faites compiler le projet (`mvn compile` OK).
+    * Faites le nécessaire pour que les deux endpoints du service soient fonctionnels.
+    * BONUS : Ajoutez un endpoint REST pour supprimer un post par son ID. La suppresion doit être logique et non physique.
+    * Lancez le service en local et vérifiez que vous arrivez bien à accéder au Swagger.
 4. A cette étape, le CTO vous demande une démonstration. 
-    - Tous les projets doivent compiler (`mvn compile` OK) dans le dossier parent.
-    - Tous les tests (unitaires et d'intégration) doivent passer avec la commande (`mvn verify` OK).
-    - Vous devez lui montrer que les Swagger fonctionnent correctement sur `user-service` et `post-service`.
+    * Tous les projets doivent compiler (`mvn compile` OK) dans le dossier parent.
+    * Tous les tests (unitaires et d'intégration) doivent passer avec la commande (`mvn verify` OK).
+    * Vous devez lui montrer que les Swagger fonctionnent correctement sur `user-service` et `post-service`.
 5. La direction espère que le CTO est content de votre démonstration. Ce dernier a des questions à vous poser (répondez dans le fichier doc.md en quelques lignes, soyez bref, vous pouvez faire une liste de points ou des pros/cons). (PAS DE CODE ICI)
-    - Pensez-vous que la structure du projet est la bonne (projet multi-modules maven) ? Pourquoi ?
-    - La direction souhaite envoyer une notification lorsqu'un post est créé. Pour cela, il suggère d'ajouter un `notification-service`. Comment est-ce que vous implémenteriez le trigger qui permettrait d'envoyer une notification lorsqu'un post est crée ? Le CTO n'impose aucune contrainte sur les technologies, temps de développement ...
+    * Pensez-vous que la structure du projet est la bonne (projet multi-modules maven) ? Pourquoi ?
+    * La direction souhaite envoyer une notification lorsqu'un post est créé. Pour cela, il suggère d'ajouter un `notification-service`. Comment est-ce que vous implémenteriez le trigger qui permettrait d'envoyer une notification lorsqu'un post est crée ? Le CTO n'impose aucune contrainte sur les technologies, temps de développement ...
 6. BONUS : Ajoutez un algorithme de permutation.
-    - Cet algorithme doit pouvoir permuter 2 à 2 les éléments de la chaîne de caractère
-    - Si le nombre de caractère est impaire, nous devons appliquer l'algorithme existant (ROT13) sur ce dernier caractère.
-    - Par exemple : KAYA devient AKAY (K <-> A et Y <-> A)
-    - Exemple avec Impair : KAYAK devient AKAYX
+    * Cet algorithme doit pouvoir permuter 2 à 2 les éléments de la chaîne de caractère
+    * Si le nombre de caractère est impaire, nous devons appliquer l'algorithme existant (ROT13) sur ce dernier caractère.
+    * Par exemple : KAYA devient AKAY (K <-> A et Y <-> A)
+    * Exemple avec Impair : KAYAK devient AKAYX
 7. BONUS : Un concurrent d'AutoMeta aurait tout intérer à connaitre le nombre d'utilisateurs du réseau social. Votre CTO ne souhaite pas que cette information fuite.
    Une rapide analyse de `user-service` permet de détecter le problème. Résolvez-le.
-8. BONUS : VVirtous avez entendu dire que les virtual threads de Java 21 pouvaient améliorer les performances de vos services. Configurez le projet pour que lorsque les requêtes utilisateurs arrivent, 
+8. BONUS : Vous avez entendu dire que les virtual threads de Java 21 pouvaient améliorer les performances de vos services. Configurez le projet pour que lorsque les requêtes utilisateurs arrivent, 
    elles soient traitées par des virtual threads.
 
     
@@ -117,10 +118,10 @@ We ask you to pay attention to the quality of the product and to perform this ta
 In order to perform the test, please *fork the project and give us access to this repository with your modifications.
 
 To make the project, please notify by mail the following people: 
-    - remi.gelibert@akt.io
-    - alexis.segura@akt.io
-    - dorian.henault@akt.io
-    - damien.lenci@akt.io
+* remi.gelibert@akt.io
+* alexis.segura@akt.io
+* dorian.henault@akt.io
+* damien.lenci@akt.io
 
 ---
 
@@ -134,10 +135,10 @@ You're expected to take a critical look at the project. There are many problems:
 in dependencies, in security...
 
 The project is a multi-modules Maven project made up of :
-    - `automata-commons` (contains elements of the common layer).
-    - `algorithm-library` (contains useful algorithms).
-    - `user-service` (API for the user resource).
-    - `post-service` (API for the post resource).
+* `automata-commons` (contains elements of the common layer).
+* `algorithm-library` (contains useful algorithms).
+* `user-service` (API for the user resource).
+* `post-service` (API for the post resource).
 
 `user-service` and `post-service` are deployed independently and have separate databases.
 
@@ -155,30 +156,30 @@ Your tasks are :
 
 0. Take charge of the project.
 1. You start with the `algorithm-library` project.
-    - Implement the decryption algorithm.
+    * Implement the decryption algorithm.
 2. You continue with the `user-service`.
-    - You notice that user passwords are stored in clear text in the database. Encrypt them.
+    * You notice that user passwords are stored in clear text in the database. Encrypt them.
       Your CTO wants the encryption service to be a bean in the Spring context.
-    - You notice that no verification is performed on user data, even though all fields are mandatory.
+    * You notice that no verification is performed on user data, even though all fields are mandatory.
       Modify the code to check the data format. Reuse as much of the existing code as possible.
-    - Run the service locally and check that you can access the Swagger.
+    * Run the service locally and check that you can access the Swagger.
 3. Continue with the `post-service`.
-    - Compile the project (`mvn compile` OK).
-    - Make sure both service endpoints are functional.
-    - BONUS: Add a REST endpoint to delete a post by its ID. The deletion must be logical, not physical.
-    - Run the service locally and check that you can access the Swagger.
+    * Compile the project (`mvn compile` OK).
+    * Make sure both service endpoints are functional.
+    * BONUS: Add a REST endpoint to delete a post by its ID. The deletion must be logical, not physical.
+    * Run the service locally and check that you can access the Swagger.
 4. At this stage, the CTO asks for a demonstration.
-    - All projects must compile (`mvn compile` OK) in the parent folder.
-    - All tests (unit and integration) must pass with the command (`mvn verify` OK).
-    - You must show that Swagger works correctly on `user-service` and `post-service`.
+    * All projects must compile (`mvn compile` OK) in the parent folder.
+    * All tests (unit and integration) must pass with the command (`mvn verify` OK).
+    * You must show that Swagger works correctly on `user-service` and `post-service`.
 5. Management hopes the CTO is happy with your demonstration. He has some questions for you (answer them in the doc.md file in a few lines, be brief, you can make a list of points or pros/cons). (NO CODE HERE)
-    - Do you think the project structure is the right one (multi-module maven project)? Why or why not?
-    - Management wants to send a notification when a post is created. To do this, they suggest adding a `notification-service`. How would you implement the trigger to send a notification when a post is created? The CTO imposes no constraints on technology, development time, etc.
+    * Do you think the project structure is the right one (multi-module maven project)? Why or why not?
+    * Management wants to send a notification when a post is created. To do this, they suggest adding a `notification-service`. How would you implement the trigger to send a notification when a post is created? The CTO imposes no constraints on technology, development time, etc.
 6. BONUS: Add a permutation algorithm.
-    - This algorithm must be able to permute 2 by 2 the elements of the character string
-    - If the number of characters is odd, we must apply the existing algorithm (ROT13) to the last character.
-    - For example: KAYA becomes AKAY (K <-> A and Y <-> A)
-    - Example with Odd: KAYAK becomes AKAYX
+    * This algorithm must be able to permute 2 by 2 the elements of the character string
+    * If the number of characters is odd, we must apply the existing algorithm (ROT13) to the last character.
+    * For example: KAYA becomes AKAY (K <-> A and Y <-> A)
+    * Example with Odd: KAYAK becomes AKAYX
 7. BONUS: A competitor of AutoMeta's would like to know the number of users of the social network. Your CTO doesn't want this information to leak out.
    A quick `user-service` analysis detects the problem. Solve it.
 8. BONUS: You've heard that Java 21's virtual threads can improve the performance of your services. Configure your project so that when user requests arrive,
