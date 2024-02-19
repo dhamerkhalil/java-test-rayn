@@ -155,30 +155,30 @@ Your tasks are :
 
 0. Take charge of the project.
 1. You start with the `algorithm-library` project.
-   - Implement the decryption algorithm.
+    - Implement the decryption algorithm.
 2. You continue with the `user-service`.
-   - You notice that user passwords are stored in clear text in the database. Encrypt them.
+    - You notice that user passwords are stored in clear text in the database. Encrypt them.
       Your CTO wants the encryption service to be a bean in the Spring context.
-   - You notice that no verification is performed on user data, even though all fields are mandatory.
+    - You notice that no verification is performed on user data, even though all fields are mandatory.
       Modify the code to check the data format. Reuse as much of the existing code as possible.
-   - Run the service locally and check that you can access the Swagger.
+    - Run the service locally and check that you can access the Swagger.
 3. Continue with the `post-service`.
-   - Compile the project (`mvn compile` OK).
-   - Make sure both service endpoints are functional.
-   - BONUS: Add a REST endpoint to delete a post by its ID. The deletion must be logical, not physical.
-   - Run the service locally and check that you can access the Swagger.
+    - Compile the project (`mvn compile` OK).
+    - Make sure both service endpoints are functional.
+    - BONUS: Add a REST endpoint to delete a post by its ID. The deletion must be logical, not physical.
+    - Run the service locally and check that you can access the Swagger.
 4. At this stage, the CTO asks for a demonstration.
-   - All projects must compile (`mvn compile` OK) in the parent folder.
-   - All tests (unit and integration) must pass with the command (`mvn verify` OK).
-   - You must show that Swagger works correctly on `user-service` and `post-service`.
+    - All projects must compile (`mvn compile` OK) in the parent folder.
+    - All tests (unit and integration) must pass with the command (`mvn verify` OK).
+    - You must show that Swagger works correctly on `user-service` and `post-service`.
 5. Management hopes the CTO is happy with your demonstration. He has some questions for you (answer them in the doc.md file in a few lines, be brief, you can make a list of points or pros/cons). (NO CODE HERE)
-   - Do you think the project structure is the right one (multi-module maven project)? Why or why not?
-   - Management wants to send a notification when a post is created. To do this, they suggest adding a `notification-service`. How would you implement the trigger to send a notification when a post is created? The CTO imposes no constraints on technology, development time, etc.
+    - Do you think the project structure is the right one (multi-module maven project)? Why or why not?
+    - Management wants to send a notification when a post is created. To do this, they suggest adding a `notification-service`. How would you implement the trigger to send a notification when a post is created? The CTO imposes no constraints on technology, development time, etc.
 6. BONUS: Add a permutation algorithm.
-   - This algorithm must be able to permute 2 by 2 the elements of the character string
-   - If the number of characters is odd, we must apply the existing algorithm (ROT13) to the last character.
-   - For example: KAYA becomes AKAY (K <-> A and Y <-> A)
-   - Example with Odd: KAYAK becomes AKAYX
+    - This algorithm must be able to permute 2 by 2 the elements of the character string
+    - If the number of characters is odd, we must apply the existing algorithm (ROT13) to the last character.
+    - For example: KAYA becomes AKAY (K <-> A and Y <-> A)
+    - Example with Odd: KAYAK becomes AKAYX
 7. BONUS: A competitor of AutoMeta's would like to know the number of users of the social network. Your CTO doesn't want this information to leak out.
    A quick `user-service` analysis detects the problem. Solve it.
 8. BONUS: You've heard that Java 21's virtual threads can improve the performance of your services. Configure your project so that when user requests arrive,
