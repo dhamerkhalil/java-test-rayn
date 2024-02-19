@@ -11,11 +11,10 @@
 
 	<modules>
 		<module>automata-commons</module>
-		<module>algorithm-services</module>
+		<module>algorithm-library</module>
 		<module>post-service</module>
 		<module>user-service</module>
 	</modules>
-
 
 	<dependencyManagement>
 		<dependencies>
@@ -28,34 +27,6 @@
 				<scope>import</scope>
 			</dependency>
 
-			<dependency>
-				<groupId>software.amazon.awssdk</groupId>
-				<artifactId>bom</artifactId>
-				<version>${aws-sdk.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-
-			<!-- Do not forget to user this tutorial for using this in Eclipse : https://howtodoinjava.com/automation/lombok-eclipse-installation-examples/ -->
-			<dependency>
-				<groupId>org.projectlombok</groupId>
-				<artifactId>lombok</artifactId>
-				<version>${lombok.version}</version>
-				<scope>provided</scope>
-			</dependency>
-
-			<!-- Swagger is used to generate API documentation on every services -->
-			<dependency>
-				<groupId>io.springfox</groupId>
-				<artifactId>springfox-swagger2</artifactId>
-				<version>${swagger.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>io.springfox</groupId>
-				<artifactId>springfox-swagger-ui</artifactId>
-				<version>${swagger.version}</version>
-			</dependency>
-
 			<!-- Datasource drivers -->
 			<dependency>
 				<groupId>org.postgresql</groupId>
@@ -64,63 +35,20 @@
 				<scope>runtime</scope>
 			</dependency>
 
+			<dependency>
+				<groupId>org.springdoc</groupId>
+				<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+				<version>${springdoc.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 	<build>
-		<resources>
-			<resource>
-				<filtering>false</filtering>
-				<directory>${basedir}/src/main/resources</directory>
-				<excludes>
-					<exclude>**/application*.properties</exclude>
-					<exclude>**/bootstrap*.properties</exclude>
-				</excludes>
-			</resource>
-			<resource>
-				<filtering>true</filtering>
-				<directory>${basedir}/src/main/resources</directory>
-				<includes>
-					<include>**/application*.properties</include>
-					<include>**/bootstrap.properties</include>
-				</includes>
-			</resource>
-		</resources>
-		<testResources>
-			<testResource>
-				<filtering>false</filtering>
-				<directory>src/test/resources</directory>
-				<excludes>
-					<exclude>**/application*.properties</exclude>
-					<exclude>**/bootstrap*.properties</exclude>
-				</excludes>
-			</testResource>
-			<testResource>
-				<filtering>true</filtering>
-				<directory>src/test/resources</directory>
-				<includes>
-					<include>**/application*.properties</include>
-					<include>**/bootstrap*.properties</include>
-				</includes>
-			</testResource>
-		</testResources>
-
 		<pluginManagement>
 			<plugins>
 				<plugin>
 					<artifactId>maven-compiler-plugin</artifactId>
 					<configuration>
 						<parameters>true</parameters>
-					</configuration>
-				</plugin>
-				<plugin>
-					<artifactId>maven-jar-plugin</artifactId>
-					<configuration>
-						<archive>
-							<manifest>
-								<mainClass>${start-class}</mainClass>
-								<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-							</manifest>
-						</archive>
 					</configuration>
 				</plugin>
 			</plugins>
@@ -191,15 +119,6 @@
 				</property>
 			</activation>
 
-			<!-- Allow devTools in Eclipse Environment -->
-			<dependencies>
-				<dependency>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-devtools</artifactId>
-					<optional>true</optional>
-				</dependency>
-			</dependencies>
-
 			<!-- Activated properties, only for dev environment -->
 			<properties>
 				<spring.profiles.active>dev</spring.profiles.active>
@@ -207,31 +126,22 @@
 		</profile>
 	</profiles>
 
-	<!-- Propriétés et différentes versions utilisées dans l'application -->
 	<properties>
-		<!-- Par défaut, on n'active aucune profile (sauf en dev) -->
-		<spring.profiles.active></spring.profiles.active>
-
-		<!-- Propriétés diverses -->
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<maven.compiler.target>${java.version}</maven.compiler.target>
-		<java.version>7</java.version>
-		<resource.delimiter>@</resource.delimiter>
+		<java.version>21</java.version>
 		<maven.compiler.source>${java.version}</maven.compiler.source>
 
 		<!-- Frameworks version -->
+		<springdoc.version>2.3.0</springdoc.version>
 
 		<!-- Maven plugins version -->
 		<helper.plugin.version>3.0.0</helper.plugin.version>
 
-		<!-- For compatibility informations : https://projects.spring.io/spring-cloud/#release-trains -->
-		<spring-boot.version>2.6.3</spring-boot.version>
-		<aws-sdk.version>2.17.121</aws-sdk.version>
-		<swagger.version>2.9.2</swagger.version>
-		<lombok.version>1.18.22</lombok.version>
+		<spring-boot.version>3.2.2</spring-boot.version>
 		<postgresql.version>42.2.2</postgresql.version>
 
-		<spring-boot-maven-plugin.version>2.1.13.RELEASE</spring-boot-maven-plugin.version>
+		<spring-boot-maven-plugin.version>3.2.2</spring-boot-maven-plugin.version>
 	</properties>
 
 </project>

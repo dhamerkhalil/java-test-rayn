@@ -52,3 +52,6 @@ Thumbs.db
 */.classpath
 */.settings/*
 .settings/*
+
+*.iml
+*/.idea

@@ -1,29 +1,28 @@
 package com.automata.testing.framework.user.service;
 /*
- * Copyright: Copyright (c) Automata akt.io 2022
+ * Copyright: Copyright (c) Automata akt.io 2022-2024.
+ * All rights reserved.
  */
 
 import com.automata.testing.framework.user.dto.UserDTO;
+import com.automata.testing.framework.user.dto.UserSignupDTO;
+
 
 /**
- * Dependencies
- */
-
-/**
- * The interface for a user service.
- * 
+ * The interface of user service.
+ *
  * @author GELIBERT
  */
 public interface IUserService {
-
+    
     // -------------------------------------- Public methods
-
+    
     /**
      * Create a new user.
-     * 
-     * @param user
-     *             the user to create.
+     *
+     * @param user the user to create.
+     * @return the user created.
      */
-    void createUser(UserDTO user);
-
+    UserDTO createUser(UserSignupDTO user);
+    
 }

@@ -1,6 +1,7 @@
 package com.automata.testing.framework.user.dto;
 /*
- * Copyright: Copyright (c) Automata akt.io 2022
+ * Copyright: Copyright (c) Automata akt.io 2022-2024.
+ * All rights reserved.
  */
 
 import lombok.AllArgsConstructor;
@@ -16,7 +17,7 @@ import lombok.experimental.SuperBuilder;
 
 /**
  * The user signup DTO
- * 
+ *
  * @author GELIBERT
  */
 @Data
@@ -26,34 +27,36 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserSignupDTO extends UserDTO {
-
+    
     // -------------------------------------- Inner classes
-
+    
     // -------------------------------------- public static attributes
-
+    
     // -------------------------------------- private static attributes
-
+    
     // -------------------------------------- private attributes
-
+    
+    // -------------------------------------- Private attributes
+    
     /**
      * The password.
      */
     private String password;
-
+    
     // -------------------------------------- public attributes
-
+    
     // -------------------------------------- Constructor
-
+    
     // -------------------------------------- Public static methods
-
+    
     // -------------------------------------- Private static methods
-
+    
     // -------------------------------------- Private methods
-
+    
     // -------------------------------------- Protected methods
-
+    
     // -------------------------------------- Public methods
-
+    
     // -------------------------------------- Setters and Getters
-
+    
 }

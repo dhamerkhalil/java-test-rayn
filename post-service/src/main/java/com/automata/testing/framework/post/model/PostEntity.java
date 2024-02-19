@@ -1,15 +1,13 @@
 package com.automata.testing.framework.post.model;
 /*
- * Copyright: Copyright (c) Automata akt.io 2022
+ * Copyright: Copyright (c) Automata akt.io 2022-2024.
+ * All rights reserved.
  */
 
-import java.io.Serializable;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,7 +20,7 @@ import lombok.ToString;
 
 /**
  * The entity model for a post.
- * 
+ *
  * @author GELIBERT
  */
 @Entity
@@ -31,62 +29,59 @@ import lombok.ToString;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PostEntity implements Serializable {
-
+public class PostEntity {
+    
     // -------------------------------------- Inner classes
-
+    
     // -------------------------------------- public static attributes
-
+    
     // -------------------------------------- private static attributes
-
-    /**
-     * Serial Version Id.
-     */
-    private static final long serialVersionUID = -592959605537059071L;
-
+    
     // -------------------------------------- private attributes
-
+    
+    // -------------------------------------- Private attributes
+    
     /**
      * The post Id.
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
+    
     /**
      * The post content.
      */
     private String content;
-
+    
     /**
      * The user id.
      */
-    private String userId;
-
+    private Integer userId;
+    
     /**
      * The user first name.
      */
     private String userFirstName;
-
+    
     /**
      * The user last name.
      */
     private String userLastName;
-
+    
     // -------------------------------------- public attributes
-
+    
     // -------------------------------------- Constructor
-
+    
     // -------------------------------------- Public static methods
-
+    
     // -------------------------------------- Private static methods
-
+    
     // -------------------------------------- Private methods
-
+    
     // -------------------------------------- Protected methods
-
+    
     // -------------------------------------- Public methods
-
+    
     // -------------------------------------- Setters and Getters
-
+    
 }

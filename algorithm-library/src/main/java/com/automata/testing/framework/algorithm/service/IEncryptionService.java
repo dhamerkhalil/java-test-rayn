@@ -1,6 +1,7 @@
 package com.automata.testing.framework.algorithm.service;
 /*
- * Copyright: Copyright (c) Automata akt.io 2021
+ * Copyright: Copyright (c) Automata akt.io 2021-2024.
+ * All rights reserved.
  */
 
 /**
@@ -10,20 +11,19 @@ package com.automata.testing.framework.algorithm.service;
 /**
  * This interface describe the multiple algorithms we have to encrypt some
  * datas.
- * 
+ *
  * @author GELIBERT
  */
 public interface IEncryptionService {
-
+    
     // -------------------------------------- Public methods
-
+    
     /**
-     * encode an input depending on the algorithme we want to use.
-     * 
-     * @param input
-     *              the input to encrypt
+     * Encode an input depending on the algorithm we want to use.
+     *
+     * @param input the input to encrypt
      * @return the result of the encryption.
      */
-    public String encode(String input);
-
+    String encode(String input);
+    
 }

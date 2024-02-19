@@ -26,14 +26,13 @@ import lombok.extern.slf4j.Slf4j;
  */
 
 /**
- * Testing class for Post Controller
+ * Testing class for Post Controller.
  * 
  * @author GELIBERT
  */
-@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT, classes = { RestTemplateAutoConfiguration.class,
-	PostServiceApi.class })
+@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT, classes = PostServiceApi.class)
 @Slf4j
-public class PostControllerIT {
+class PostControllerIT {
 
     // -------------------------------------- Inner classes
 
@@ -73,46 +72,44 @@ public class PostControllerIT {
      * Testing the post creation.
      */
     @Test
-    public void creationPostOkTest() {
-
-	// Post creation.
-	UserDTO user = UserDTO.builder().firstName("Blaise").lastName("Pascal").emailAddress("blaise.pascal@gmail.com")
-		.userId("AHhhhhookk").build();
-	PostDTO postCreate = PostDTO.builder().content("ABC").user(user).build();
-
-	// sending the request.
-	ResponseEntity<String> res = this.restTemplate.postForEntity("/api/post", postCreate, String.class);
-
-	Assertions.assertEquals(1, postRepository.count());
-	// We get the user and we check the informations.
-	PostEntity postSaved = this.postRepository.findById(1).get();
-	log.info("The post in database is {}", postSaved);
-	Assertions.assertEquals(postCreate.getUser().getUserId(), postSaved.getUserId());
-	Assertions.assertEquals(postCreate.getUser().getFirstName(), postSaved.getUserFirstName());
-	Assertions.assertEquals(postCreate.getUser().getLastName(), postSaved.getUserLastName());
-	Assertions.assertNotNull(postSaved.getId());
-	// Content should be encrypted in database.
-	Assertions.assertEquals("NOP", postSaved.getContent());
-
-	PostEntity getPostFromApi = this.restTemplate.getForEntity("/api/post/1", PostEntity.class).getBody();
-	log.info("The post from API {}", getPostFromApi);
-	Assertions.assertEquals(postCreate.getUser().getUserId(), getPostFromApi.getUserId());
-	Assertions.assertEquals(postCreate.getUser().getFirstName(), getPostFromApi.getUserFirstName());
-	Assertions.assertEquals(postCreate.getUser().getLastName(), getPostFromApi.getUserLastName());
-	Assertions.assertNotNull(postSaved.getId());
-	// Content should not be encrypted through API.
-	Assertions.assertEquals("ABC", getPostFromApi.getContent());
+	void creationPostOkTest() {
+		// Post creation.
+		UserDTO user = UserDTO.builder().firstName("Blaise").lastName("Pascal").emailAddress("blaise.pascal@gmail.com")
+			.userId("AHhhhhookk").build();
+		PostDTO postCreate = PostDTO.builder().content("ABC").user(user).build();
+	
+		// sending the request.
+		ResponseEntity<String> res = this.restTemplate.postForEntity("/api/post", postCreate, String.class);
+	
+		Assertions.assertEquals(1, postRepository.count());
+		// We get the user and we check the informations.
+		PostEntity postSaved = this.postRepository.findById(1).get();
+		log.info("The post in database is {}", postSaved);
+		Assertions.assertEquals(postCreate.getUser().getUserId(), postSaved.getUserId());
+		Assertions.assertEquals(postCreate.getUser().getFirstName(), postSaved.getUserFirstName());
+		Assertions.assertEquals(postCreate.getUser().getLastName(), postSaved.getUserLastName());
+		Assertions.assertNotNull(postSaved.getId());
+		// Content should be encrypted in database.
+		Assertions.assertEquals("NOP", postSaved.getContent());
+	
+		PostEntity getPostFromApi = this.restTemplate.getForEntity("/api/post/1", PostEntity.class).getBody();
+		log.info("The post from API {}", getPostFromApi);
+		Assertions.assertEquals(postCreate.getUser().getUserId(), getPostFromApi.getUserId());
+		Assertions.assertEquals(postCreate.getUser().getFirstName(), getPostFromApi.getUserFirstName());
+		Assertions.assertEquals(postCreate.getUser().getLastName(), getPostFromApi.getUserLastName());
+		Assertions.assertNotNull(postSaved.getId());
+		// Content should not be encrypted through API.
+		Assertions.assertEquals("ABC", getPostFromApi.getContent());
     }
 
     /**
      * When the id does not exists, it should return "not found".
      */
-    public void findPostByIdNotFound() {
-	ResponseEntity<PostEntity> getPostFromApi = this.restTemplate.getForEntity("/api/post/2", PostEntity.class);
-	log.info("The post from API {}", getPostFromApi);
-	// Must be not found.
-	Assertions.assertEquals(HttpStatus.NOT_FOUND, getPostFromApi.getStatusCode());
-
+	void findPostByIdNotFound() {
+		ResponseEntity<PostEntity> getPostFromApi = this.restTemplate.getForEntity("/api/post/2", PostEntity.class);
+		log.info("The post from API {}", getPostFromApi);
+		// Must be not found.
+		Assertions.assertEquals(HttpStatus.NOT_FOUND, getPostFromApi.getStatusCode());
     }
 
     // -------------------------------------- Setters and Getters

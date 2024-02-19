@@ -1,6 +1,7 @@
 package com.automata.testing.framework.algorithm.service;
 /*
- * Copyright: Copyright (c) Automata akt.io 2021
+ * Copyright: Copyright (c) Automata akt.io 2021-2024.
+ * All rights reserved.
  */
 
 /**
@@ -10,20 +11,19 @@ package com.automata.testing.framework.algorithm.service;
 /**
  * This interface describe the multiple algorithms we have to decrypt some
  * datas.
- * 
+ *
  * @author GELIBERT
  */
 public interface IDecryptionService {
-
+    
     // -------------------------------------- Public methods
-
+    
     /**
      * Decode the information into input in order to get the information.
-     * 
-     * @param input
-     *              the input to decode
+     *
+     * @param input the input to decode
      * @return the result of the decryption.
      */
-    public String decode(String input);
-
+    String decode(String input);
+    
 }
