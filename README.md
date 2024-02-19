@@ -23,10 +23,10 @@ Nous vous demandons de faire attention à la qualité et de réaliser ces tâche
 Afin de réaliser le test, veuillez *forker* le projet puis nous donner accès à ce repository avec vos modifications.
 
 Pour rendre le projet, veuillez notifier par mail les personnes suivantes :
-* remi.gelibert@akt.io 
-* alexis.segura@akt.io 
-* dorian.henault@akt.io 
-* damien.lenci@akt.io
+1. remi.gelibert@akt.io
+2. alexis.segura@akt.io
+3. dorian.henault@akt.io
+4. damien.lenci@akt.io
 
 ---
 
@@ -40,10 +40,10 @@ On attend de vous un regard critique sur le projet. Il y a de nombreux problème
 dans les dépendances, au niveau de la sécurité...
 
 Le projet est un projet Maven multi-modules composé de :
-* `automata-commons` (contient des éléments de la couche commune).
-* `algorithm-library` (contient des algorithmes utiles).
-* `user-service` (API pour la ressource user).
-* `post-service` (API pour la ressource post).
+1. `automata-commons` (contient des éléments de la couche commune).
+2. `algorithm-library` (contient des algorithmes utiles).
+3. `user-service` (API pour la ressource user).
+4. `post-service` (API pour la ressource post).
 
 `user-service` et `post-service` sont déployés de manière indépendante et ont des bases de données séparées.
 
@@ -117,11 +117,11 @@ We ask you to pay attention to the quality of the product and to perform this ta
 
 In order to perform the test, please *fork the project and give us access to this repository with your modifications.
 
-To make the project, please notify by mail the following people: 
-* remi.gelibert@akt.io
-* alexis.segura@akt.io
-* dorian.henault@akt.io
-* damien.lenci@akt.io
+To make the project, please notify by mail the following people:
+1. remi.gelibert@akt.io
+2. alexis.segura@akt.io
+3. dorian.henault@akt.io
+4. damien.lenci@akt.io
 
 ---
 
@@ -135,10 +135,10 @@ You're expected to take a critical look at the project. There are many problems:
 in dependencies, in security...
 
 The project is a multi-modules Maven project made up of :
-* `automata-commons` (contains elements of the common layer).
-* `algorithm-library` (contains useful algorithms).
-* `user-service` (API for the user resource).
-* `post-service` (API for the post resource).
+1. `automata-commons` (contains elements of the common layer).
+2. `algorithm-library` (contains useful algorithms).
+3. `user-service` (API for the user resource).
+4. `post-service` (API for the post resource).
 
 `user-service` and `post-service` are deployed independently and have separate databases.
 
