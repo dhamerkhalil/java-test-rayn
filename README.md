@@ -23,10 +23,11 @@ Nous vous demandons de faire attention à la qualité et de réaliser ces tâche
 Afin de réaliser le test, veuillez *forker* le projet puis nous donner accès à ce repository avec vos modifications.
 
 Pour rendre le projet, veuillez notifier par mail les personnes suivantes :
-1. remi.gelibert@akt.io
-2. alexis.segura@akt.io
-3. dorian.henault@akt.io
-4. damien.lenci@akt.io
+* Rémi GELIBERT : remi.gelibert@akt.io
+* Alexis SEGURA : alexis.segura@akt.io
+* Dorian HENAULT : dorian.henault@akt.io
+* Damien LENCI : damien.lenci@akt.io
+
 
 ---
 
@@ -40,10 +41,10 @@ On attend de vous un regard critique sur le projet. Il y a de nombreux problème
 dans les dépendances, au niveau de la sécurité...
 
 Le projet est un projet Maven multi-modules composé de :
-1. `automata-commons` (contient des éléments de la couche commune).
-2. `algorithm-library` (contient des algorithmes utiles).
-3. `user-service` (API pour la ressource user).
-4. `post-service` (API pour la ressource post).
+* Module : `automata-commons` (contient des éléments de la couche commune).
+* Module : `algorithm-library` (contient des algorithmes utiles).
+* Module : `user-service` (API pour la ressource user).
+* Module : `post-service` (API pour la ressource post).
 
 `user-service` et `post-service` sont déployés de manière indépendante et ont des bases de données séparées.
 
@@ -118,10 +119,10 @@ We ask you to pay attention to the quality of the product and to perform this ta
 In order to perform the test, please *fork the project and give us access to this repository with your modifications.
 
 To make the project, please notify by mail the following people:
-1. remi.gelibert@akt.io
-2. alexis.segura@akt.io
-3. dorian.henault@akt.io
-4. damien.lenci@akt.io
+* Rémi GELIBERT : remi.gelibert@akt.io
+* Alexis SEGURA : alexis.segura@akt.io
+* Dorian HENAULT : dorian.henault@akt.io
+* Damien LENCI : damien.lenci@akt.io
 
 ---
 
@@ -135,10 +136,10 @@ You're expected to take a critical look at the project. There are many problems:
 in dependencies, in security...
 
 The project is a multi-modules Maven project made up of :
-1. `automata-commons` (contains elements of the common layer).
-2. `algorithm-library` (contains useful algorithms).
-3. `user-service` (API for the user resource).
-4. `post-service` (API for the post resource).
+* Module : `automata-commons` (contains elements of the common layer).
+* Module : `algorithm-library` (contains useful algorithms).
+* Module : `user-service` (API for the user resource).
+* Module : `post-service` (API for the post resource).
 
 `user-service` and `post-service` are deployed independently and have separate databases.
 
