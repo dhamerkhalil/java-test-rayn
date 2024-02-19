@@ -59,25 +59,25 @@ Vos missions sont :
 
 0. Prenez en main le projet.
 1. Vous débutez par le projet `algorithm-library`.
-   1. Implémentez l'algorithme de décryption.
+   - Implémentez l'algorithme de décryption.
 2. Vous continuez par le `user-service`. 
-   1. Vous remarquez que les mots de passe des utilisateurs sont stockés en clair dans la base. Encryptez-les.
+   - Vous remarquez que les mots de passe des utilisateurs sont stockés en clair dans la base. Encryptez-les.
       Votre CTO souhaite que le service d'encryption soit un bean dans le context Spring. 
-   2. Vous remarquez qu'aucune verification n'est faite sur les données de l'utilisateur alors que tous les champs sont obligatoires.
+   - Vous remarquez qu'aucune verification n'est faite sur les données de l'utilisateur alors que tous les champs sont obligatoires.
    Modifiez le code pour vérifier le format des données. Réutilisez un maximum de l'existant. 
-   3. Lancez le service en local et verifiez que vous arrivez bien à accéder au Swagger.
+   - Lancez le service en local et verifiez que vous arrivez bien à accéder au Swagger.
 3. Vous continuez sur le `post-service`.
-   1. Faites compiler le projet (`mvn compile` OK).
-   2. Faites le nécessaire pour que les deux endpoints du service soient fonctionnels.
-   3. BONUS : Ajoutez un endpoint REST pour supprimer un post par son ID. La suppresion doit être logique et non physique.
-   4. Lancez le service en local et vérifiez que vous arrivez bien à accéder au Swagger.
+   - Faites compiler le projet (`mvn compile` OK).
+   - Faites le nécessaire pour que les deux endpoints du service soient fonctionnels.
+   - BONUS : Ajoutez un endpoint REST pour supprimer un post par son ID. La suppresion doit être logique et non physique.
+   - Lancez le service en local et vérifiez que vous arrivez bien à accéder au Swagger.
 4. A cette étape, le CTO vous demande une démonstration. 
-   1. Tous les projets doivent compiler (`mvn compile` OK) dans le dossier parent.
-   2. Tous les tests (unitaires et d'intégration) doivent passer avec la commande (`mvn verify` OK).
-   3. Vous devez lui montrer que les Swagger fonctionnent correctement sur `user-service` et `post-service`.
+   - Tous les projets doivent compiler (`mvn compile` OK) dans le dossier parent.
+   - Tous les tests (unitaires et d'intégration) doivent passer avec la commande (`mvn verify` OK).
+   - Vous devez lui montrer que les Swagger fonctionnent correctement sur `user-service` et `post-service`.
 5. La direction espère que le CTO est content de votre démonstration. Ce dernier a des questions à vous poser (répondez dans le fichier doc.md en quelques lignes, soyez bref, vous pouvez faire une liste de points ou des pros/cons). (PAS DE CODE ICI)
-   1. Pensez-vous que la structure du projet est la bonne (projet multi-modules maven) ? Pourquoi ?
-   2. La direction souhaite envoyer une notification lorsqu'un post est créé. Pour cela, il suggère d'ajouter un `notification-service`. Comment est-ce que vous implémenteriez le trigger qui permettrait d'envoyer une notification lorsqu'un post est crée ? Le CTO n'impose aucune contrainte sur les technologies, temps de développement ...
+   - Pensez-vous que la structure du projet est la bonne (projet multi-modules maven) ? Pourquoi ?
+   - La direction souhaite envoyer une notification lorsqu'un post est créé. Pour cela, il suggère d'ajouter un `notification-service`. Comment est-ce que vous implémenteriez le trigger qui permettrait d'envoyer une notification lorsqu'un post est crée ? Le CTO n'impose aucune contrainte sur les technologies, temps de développement ...
 6. BONUS : Ajoutez un algorithme de permutation.
     - Cet algorithme doit pouvoir permuter 2 à 2 les éléments de la chaîne de caractère
     - Si le nombre de caractère est impaire, nous devons appliquer l'algorithme existant (ROT13) sur ce dernier caractère.
