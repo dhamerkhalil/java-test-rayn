@@ -19,11 +19,15 @@ public class DecryptRotation13ServiceImpl implements IDecryptionService {
     // -------------------------------------- Inner classes
     
     // -------------------------------------- public static attributes
-    
+
     // -------------------------------------- private static attributes
     
     // -------------------------------------- private attributes
-    
+    /**
+     * Storing the last character we handled.
+     */
+    private String CHAR_RESULT = null;
+
     // -------------------------------------- public attributes
     
     // -------------------------------------- Constructor
@@ -37,8 +41,23 @@ public class DecryptRotation13ServiceImpl implements IDecryptionService {
     // -------------------------------------- Public methods
     @Override
     public String decode(String input) {
-        // TODO Implement this method
-        return null;
+        for (int i = 0; i <= input.toUpperCase().length(); i++) {
+            if (i == 0) {
+                continue;
+            }
+            char c = input.charAt(i - 1);
+            char res = (char) ((c - 13));
+            if (!Character.isAlphabetic(res)) {
+                res = c;
+            }
+            if (CHAR_RESULT == null) {
+                CHAR_RESULT = "";
+            }
+            CHAR_RESULT = CHAR_RESULT + res;
+        }
+        String res = CHAR_RESULT;
+        CHAR_RESULT = null;
+        return res;
     }
     
     // -------------------------------------- Setters and Getters
