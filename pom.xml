@@ -14,6 +14,7 @@
 		<module>algorithm-library</module>
 		<module>post-service</module>
 		<module>user-service</module>
+		<module>notification-service</module>
 	</modules>
 
 	<dependencyManagement>

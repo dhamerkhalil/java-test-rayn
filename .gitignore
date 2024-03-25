@@ -55,3 +55,8 @@ Thumbs.db
 
 *.iml
 */.idea
+/notification-service/mvnw
+/notification-service/.mvn/wrapper/maven-wrapper.properties
+/notification-service/mvnw.cmd
+/notification-service/.mvn/wrapper/maven-wrapper.jar
+/notification-service/.mvn/wrapper/maven-wrapper.jar
