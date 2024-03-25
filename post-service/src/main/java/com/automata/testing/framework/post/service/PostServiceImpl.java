@@ -8,6 +8,7 @@ import com.automata.testing.framework.post.dto.PostDTO;
 import com.automata.testing.framework.post.model.PostEntity;
 import com.automata.testing.framework.post.repository.IPostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
@@ -20,6 +21,7 @@ import java.util.Optional;
  *
  * @author GELIBERT
  */
+@Service
 public class PostServiceImpl implements IPostService {
     
     // -------------------------------------- Inner classes
