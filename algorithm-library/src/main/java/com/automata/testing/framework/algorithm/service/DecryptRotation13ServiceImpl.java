@@ -23,10 +23,6 @@ public class DecryptRotation13ServiceImpl implements IDecryptionService {
     // -------------------------------------- private static attributes
     
     // -------------------------------------- private attributes
-    /**
-     * Storing the last character we handled.
-     */
-    private String CHAR_RESULT = null;
 
     // -------------------------------------- public attributes
     
@@ -41,6 +37,8 @@ public class DecryptRotation13ServiceImpl implements IDecryptionService {
     // -------------------------------------- Public methods
     @Override
     public String decode(String input) {
+        if(input == null) throw new RuntimeException("Error empty input not allowed") ;
+        StringBuilder result = new StringBuilder();
         for (int i = 0; i <= input.toUpperCase().length(); i++) {
             if (i == 0) {
                 continue;
@@ -50,14 +48,9 @@ public class DecryptRotation13ServiceImpl implements IDecryptionService {
             if (!Character.isAlphabetic(res)) {
                 res = c;
             }
-            if (CHAR_RESULT == null) {
-                CHAR_RESULT = "";
-            }
-            CHAR_RESULT = CHAR_RESULT + res;
+            result.append(res);
         }
-        String res = CHAR_RESULT;
-        CHAR_RESULT = null;
-        return res;
+        return result.toString();
     }
     
     // -------------------------------------- Setters and Getters

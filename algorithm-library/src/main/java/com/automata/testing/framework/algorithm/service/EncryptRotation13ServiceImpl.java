@@ -26,11 +26,6 @@ public class EncryptRotation13ServiceImpl implements IEncryptionService {
     
     // -------------------------------------- Private attributes
     
-    /**
-     * Storing the last character we handled.
-     */
-    private String CHAR_RESULT = null;
-    
     // -------------------------------------- private attributes
     
     // -------------------------------------- public attributes
@@ -50,6 +45,8 @@ public class EncryptRotation13ServiceImpl implements IEncryptionService {
     
     @Override
     public String encode(final String input) {
+        if(input == null) throw new RuntimeException("Error empty input not allowed") ;
+        StringBuilder result = new StringBuilder();
         for (int i = 0; i <= input.toUpperCase().length(); i++) {
             if (i == 0) {
                 continue;
@@ -59,14 +56,9 @@ public class EncryptRotation13ServiceImpl implements IEncryptionService {
             if (Character.isAlphabetic(c)) {
                 res = (char) ((c + 13));
             }
-            if (CHAR_RESULT == null) {
-                CHAR_RESULT = "";
-            }
-            CHAR_RESULT = CHAR_RESULT + res;
+            result.append(res);
         }
-        String res = CHAR_RESULT;
-        CHAR_RESULT = null;
-        return res;
+        return result.toString();
     }
     
     

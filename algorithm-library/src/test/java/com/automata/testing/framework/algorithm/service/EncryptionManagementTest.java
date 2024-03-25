@@ -33,12 +33,12 @@ class EncryptionManagementTest {
     /**
      * Encryption service to use.
      */
-    private IEncryptionService encryptionService = new EncryptRotation13ServiceImpl();
+    private final IEncryptionService encryptionService = new EncryptRotation13ServiceImpl();
     
     /**
      * Decryption service to use.
      */
-    private IDecryptionService decryptionService = new DecryptRotation13ServiceImpl();
+    private final IDecryptionService decryptionService = new DecryptRotation13ServiceImpl();
     
     // -------------------------------------- public attributes
     
