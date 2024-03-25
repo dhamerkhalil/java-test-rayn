@@ -38,13 +38,18 @@ public class PostController {
     /**
      * The post service to use.
      */
-    @Autowired
     private PostServiceImpl postService;
     
     // -------------------------------------- public attributes
     
     // -------------------------------------- Constructor
-    
+
+    @Autowired
+    public PostController(PostServiceImpl postService) {
+        this.postService = postService;
+    }
+
+
     // -------------------------------------- Public static methods
     
     // -------------------------------------- Private static methods
@@ -62,7 +67,7 @@ public class PostController {
      * @return the response entity
      */
     @PostMapping(path = "/post")
-    public ResponseEntity<String> createUser(@RequestBody final PostDTO post) {
+    public ResponseEntity<String> createPost(@RequestBody final PostDTO post) {
         log.info("Receiving the post {}", post);
         postService.createPost(post);
         return ResponseEntity.ok().build();
@@ -74,8 +79,8 @@ public class PostController {
      * @param id the identifier
      * @return the response entity
      */
-    @PostMapping(path = "/post/{id}")
-    public ResponseEntity<PostEntity> createUser(@PathVariable(name = "identifier") final Integer id) {
+    @GetMapping(path = "/post/{id}")
+    public ResponseEntity<PostEntity> createPost(@PathVariable(name = "identifier") final Integer id) {
         log.info("Trying to find the post with id {}", id);
         
         return ResponseEntity.ok(postService.getPost(id).get());
