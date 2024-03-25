@@ -56,7 +56,7 @@ public class PostServiceImpl implements IPostService {
      * {@inheritDoc}
      */
     public Integer createPost(final PostDTO post) {
-        final PostEntity postDoc = PostEntity.builder().content(post.getContent()).userId(post.getUser().getUserId())
+        final PostEntity postDoc = PostEntity.builder().content(post.getContent()).userId(Integer.parseInt(post.getUser().getUserId()))
                 .userFirstName(post.getUser().getFirstName()).userLastName(post.getUser().getLastName()).build();
         // TODO - Encrypt the Content
         return postRepo.save(postDoc).getId();

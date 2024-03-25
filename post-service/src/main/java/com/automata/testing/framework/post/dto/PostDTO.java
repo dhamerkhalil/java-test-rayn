@@ -5,6 +5,7 @@ package com.automata.testing.framework.post.dto;
  */
 
 
+import com.automata.testing.framework.user.dto.UserDTO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
