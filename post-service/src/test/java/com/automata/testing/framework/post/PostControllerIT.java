@@ -75,7 +75,9 @@ class PostControllerIT {
 	
 		// sending the request.
 		ResponseEntity<String> res = this.restTemplate.postForEntity("/api/post", postCreate, String.class);
-	
+
+		Assertions.assertEquals(HttpStatus.OK, res.getStatusCode());
+
 		Assertions.assertEquals(1, postRepository.count());
 		// We get the user and we check the informations.
 		PostEntity postSaved = this.postRepository.findById(1).get();
