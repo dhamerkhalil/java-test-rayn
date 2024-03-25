@@ -9,10 +9,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 /**
- * Dependencies
- */
-
-/**
  * Unit test for algorithms.
  *
  * @author GELIBERT

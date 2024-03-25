@@ -12,9 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-/**
- * Dependencies
- */
+import java.util.Optional;
 
 /**
  * Post controller.
@@ -82,8 +80,12 @@ public class PostController {
     @GetMapping(path = "/post/{id}")
     public ResponseEntity<PostEntity> createPost(@PathVariable(name = "identifier") final Integer id) {
         log.info("Trying to find the post with id {}", id);
-        
-        return ResponseEntity.ok(postService.getPost(id).get());
+        Optional<PostEntity> result = postService.getPost(id);
+        if(result.isPresent()){
+            return ResponseEntity.ok(result.get());
+        }else{
+            return ResponseEntity.notFound().build();
+        }
     }
 
 
@@ -96,8 +98,12 @@ public class PostController {
     @DeleteMapping(path = "/post/{id}")
     public ResponseEntity<PostEntity> deletePost(@PathVariable(name = "identifier") final Integer id) {
         log.info("Trying to delete the post with id {}", id);
-
-        return ResponseEntity.ok(postService.getPost(id).get());
+        Optional<PostEntity> result = postService.getPost(id);
+        if(result.isPresent()){
+            return ResponseEntity.ok(result.get());
+        }else{
+            return ResponseEntity.badRequest().build();
+        }
     }
     // -------------------------------------- Setters and Getters
     
