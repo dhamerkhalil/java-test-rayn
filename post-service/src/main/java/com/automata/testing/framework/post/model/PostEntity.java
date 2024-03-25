@@ -67,7 +67,12 @@ public class PostEntity {
      * The user last name.
      */
     private String userLastName;
-    
+
+    /**
+     * deleted row from user.
+     */
+    private boolean deleted = false;
+
     // -------------------------------------- public attributes
     
     // -------------------------------------- Constructor

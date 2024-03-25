@@ -22,9 +22,9 @@ import java.util.Optional;
  */
 @Service
 public interface IPostService {
-    
+
     // -------------------------------------- Public methods
-    
+
     /**
      * Create the post, and encrypt the content in the database.
      *
@@ -32,7 +32,7 @@ public interface IPostService {
      * @return
      */
     Integer createPost(PostDTO post);
-    
+
     /**
      * Find a post by its id.
      *
@@ -40,4 +40,12 @@ public interface IPostService {
      * @return
      */
     Optional<PostEntity> getPost(Integer id);
+
+    /**
+     * delete a post by its id.
+     *
+     * @param id the id
+     * @return Optional of post entity
+     */
+    public Optional<PostEntity> deletePost(final Integer id);
 }

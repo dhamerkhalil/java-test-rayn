@@ -70,6 +70,22 @@ public class PostServiceImpl implements IPostService {
     public Optional<PostEntity> getPost(final Integer id) {
         return postRepo.findById(id);
     }
+
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Optional<PostEntity> deletePost(final Integer id) {
+        Optional<PostEntity> postToDelete = postRepo.findById(id);
+        if(postToDelete.isPresent()){
+            PostEntity post = postToDelete.get();
+            post.setDeleted(true); // soft delete
+            postRepo.save(post);
+            return Optional.of(post);
+        }
+        return Optional.empty();
+    }
     
     // -------------------------------------- Setters and Getters
     

@@ -58,7 +58,7 @@ public class PostController {
     // -------------------------------------- Protected methods
     
     // -------------------------------------- Public methods
-    
+
     /**
      * Rest API for the creation of the post.
      *
@@ -84,7 +84,20 @@ public class PostController {
         
         return ResponseEntity.ok(postService.getPost(id).get());
     }
-    
+
+
+    /**
+     * Rest API to delete a post by its id.
+     *
+     * @param id the identifier
+     * @return the response entity
+     */
+    @PostMapping(path = "/post/{id}")
+    public ResponseEntity<PostEntity> deletePost(@PathVariable(name = "identifier") final Integer id) {
+        log.info("Trying to delete the post with id {}", id);
+
+        return ResponseEntity.ok(postService.getPost(id).get());
+    }
     // -------------------------------------- Setters and Getters
     
 }
