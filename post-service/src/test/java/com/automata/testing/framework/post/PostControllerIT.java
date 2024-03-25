@@ -1,6 +1,10 @@
 package com.automata.testing.framework.post;
 
+import com.automata.testing.framework.post.dto.PostDTO;
+import com.automata.testing.framework.post.model.PostEntity;
+import com.automata.testing.framework.post.repository.IPostRepository;
 import com.automata.testing.framework.user.dto.UserDTO;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,12 +13,6 @@ import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-
-import com.automata.testing.framework.post.dto.PostDTO;
-import com.automata.testing.framework.post.model.PostEntity;
-import com.automata.testing.framework.post.repository.IPostRepository;
-
-import lombok.extern.slf4j.Slf4j;
 
 /*
  * Copyright: Copyright (c) Automata akt.io 2021

@@ -2,7 +2,6 @@ package com.automata.testing.framework.post.service;
 
 import com.automata.testing.framework.post.dto.PostDTO;
 import com.automata.testing.framework.post.model.PostEntity;
-import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 

@@ -16,10 +16,6 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 /**
- * Dependencies
- */
-
-/**
  * Post service implementation.
  *
  * @author GELIBERT

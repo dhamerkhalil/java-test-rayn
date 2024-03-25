@@ -4,7 +4,6 @@ package com.automata.testing.framework.user.controller;
  * All rights reserved.
  */
 
-import com.automata.testing.framework.commons.exceptions.AutomataBusinessException;
 import com.automata.testing.framework.user.dto.UserDTO;
 import com.automata.testing.framework.user.dto.UserSignupDTO;
 import com.automata.testing.framework.user.service.IUserService;
