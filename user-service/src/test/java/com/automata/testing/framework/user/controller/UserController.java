@@ -77,7 +77,7 @@ public class UserController {
     @PostMapping
     @Operation(description = "Create a new user.")
     @ApiResponse(responseCode = "201", description = "User created, location in the header.")
-    public ResponseEntity<UserDTO> createUser(@RequestBody final UserSignupDTO user) throws AutomataBusinessException {
+    public ResponseEntity<UserDTO> createUser(@RequestBody final UserSignupDTO user) {
         log.debug("Create new user with email {}", user.getEmailAddress());
         final UserDTO userCreated = userService.createUser(user);
         final URI locationURI = UriComponentsBuilder.fromPath(API_ROOT + "/{id}").build(userCreated.getUserId());
