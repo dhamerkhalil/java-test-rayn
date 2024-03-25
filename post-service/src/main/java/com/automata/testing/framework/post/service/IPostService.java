@@ -20,7 +20,6 @@ import java.util.Optional;
  *
  * @author GELIBERT
  */
-@Service
 public interface IPostService {
 
     // -------------------------------------- Public methods
