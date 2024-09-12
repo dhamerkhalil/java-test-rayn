@@ -2,7 +2,6 @@ package com.automata.testing.framework.post.service;
 
 import com.automata.testing.framework.post.dto.PostDTO;
 import com.automata.testing.framework.post.model.PostEntity;
-import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
@@ -20,11 +19,10 @@ import java.util.Optional;
  *
  * @author GELIBERT
  */
-@Service
 public interface IPostService {
-    
+
     // -------------------------------------- Public methods
-    
+
     /**
      * Create the post, and encrypt the content in the database.
      *
@@ -32,7 +30,7 @@ public interface IPostService {
      * @return
      */
     Integer createPost(PostDTO post);
-    
+
     /**
      * Find a post by its id.
      *
@@ -40,4 +38,12 @@ public interface IPostService {
      * @return
      */
     Optional<PostEntity> getPost(Integer id);
+
+    /**
+     * delete a post by its id.
+     *
+     * @param id the id
+     * @return Optional of post entity
+     */
+    public Optional<PostEntity> deletePost(final Integer id);
 }

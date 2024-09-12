@@ -9,10 +9,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 /**
- * Dependencies
- */
-
-/**
  * Unit test for algorithms.
  *
  * @author GELIBERT
@@ -33,12 +29,12 @@ class EncryptionManagementTest {
     /**
      * Encryption service to use.
      */
-    private IEncryptionService encryptionService = new EncryptRotation13ServiceImpl();
+    private final IEncryptionService encryptionService = new EncryptRotation13ServiceImpl();
     
     /**
      * Decryption service to use.
      */
-    private IDecryptionService decryptionService = new DecryptRotation13ServiceImpl();
+    private final IDecryptionService decryptionService = new DecryptRotation13ServiceImpl();
     
     // -------------------------------------- public attributes
     
@@ -53,32 +49,36 @@ class EncryptionManagementTest {
     // -------------------------------------- Protected methods
     
     // -------------------------------------- Public methods
-    
+
     /**
      * Testing the ROT 13 Algorithm.
      */
     @Test
-    public void iDontKnowTest() {
-        
+    public void testRot13Encryption() {
+
         // Testing with data ABC, that should be changed in NOP
-        String res = encryptionService.encode("ABC");
-        
-        Assertions.assertEquals("NOP", res);
-        
-        res = encryptionService.encode("XYZ");
-        Assertions.assertEquals("efg", res);
-        
+        String encodedString = encryptionService.encode("ABC");
+        Assertions.assertEquals("NOP", encodedString);
+
+        encodedString = encryptionService.encode("XYZ");
+        Assertions.assertEquals("efg", encodedString);
     }
     
     /**
      * Testing Synchronous encoding and decoding.
      */
     @Test
-    public void iDontKnowTest2() {
+    public void testSynchronousEncodingAndDecoding() {
         
         // Testing the decoding algorithm.
-        String toTest = RandomStringUtils.randomAlphabetic(30).toUpperCase();
-        Assertions.assertEquals(toTest, decryptionService.decode(encryptionService.encode(toTest)));
+        String originalString = RandomStringUtils.randomAlphabetic(30).toUpperCase();
+
+        // Encode the string and then decode it
+        String encodedString = encryptionService.encode(originalString);
+        String decodedString = decryptionService.decode(encodedString);
+
+        // Ensure the decoded string matches the original one
+        Assertions.assertEquals(originalString, decodedString);
     }
     
     // -------------------------------------- Setters and Getters

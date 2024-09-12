@@ -89,6 +89,9 @@ Vos missions sont :
    dans le fichier doc.md en quelques lignes, soyez bref, vous pouvez faire une liste de points ou des pros/cons). (PAS
    DE CODE ICI)
     1. Pensez-vous que la structure du projet est la bonne (projet multi-modules maven) ? Pourquoi ?
+	
+	Oui, Les projets multi-modules permettent de diviser votre application en plusieurs modules indépendants, gestion des dépendances simplifié et les modules peuvent être construits en parallèle, ce qui accélère le processus de construction dans les environnements de développement
+	
     2. La direction souhaite envoyer une notification lorsqu'un post est créé. Pour cela, il suggère d'ajouter
        un `notification-service`. Comment est-ce que vous implémenteriez le trigger qui permettrait d'envoyer une
        notification lorsqu'un post est crée ? Le CTO n'impose aucune contrainte sur les technologies, temps de

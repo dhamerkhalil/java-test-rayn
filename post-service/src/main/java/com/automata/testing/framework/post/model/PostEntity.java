@@ -8,11 +8,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 /**
  * Dependencies
@@ -67,7 +63,12 @@ public class PostEntity {
      * The user last name.
      */
     private String userLastName;
-    
+
+    /**
+     * deleted row from user.
+     */
+    private boolean deleted = false;
+
     // -------------------------------------- public attributes
     
     // -------------------------------------- Constructor

@@ -9,6 +9,7 @@ package com.automata.testing.framework.user.service;
  * Dependencies
  */
 
+import com.automata.testing.framework.algorithm.service.IEncryptionService;
 import com.automata.testing.framework.user.dto.UserDTO;
 import com.automata.testing.framework.user.dto.UserSignupDTO;
 import com.automata.testing.framework.user.model.UserEntity;
@@ -37,13 +38,24 @@ public class UserServiceImpl implements IUserService {
     // -------------------------------------- private attributes
     
     // -------------------------------------- Private attributes
-    @Autowired
-    private IUserRepository userRepository;
+
+    private final IUserRepository userRepository;
+
+    /**
+     * Encryption service to use.
+     */
+    private final IEncryptionService encryptionService;
     
     // -------------------------------------- public attributes
     
     // -------------------------------------- Constructor
-    
+
+
+    @Autowired
+    public UserServiceImpl(IUserRepository userRepository, IEncryptionService encryptionService) {
+        this.userRepository = userRepository;
+        this.encryptionService = encryptionService;
+    }
     // -------------------------------------- Public static methods
     
     // -------------------------------------- Private static methods
@@ -65,7 +77,7 @@ public class UserServiceImpl implements IUserService {
                 .firstName(user.getFirstName())
                 .lastName(user.getLastName())
                 .emailAddress(user.getEmailAddress())
-                .password(user.getPassword())
+                .password(encryptionService.encode(user.getPassword()))
                 .build();
         log.debug("Saving the user {}", user);
         return this.convertToDto(userRepository.save(savingUser));

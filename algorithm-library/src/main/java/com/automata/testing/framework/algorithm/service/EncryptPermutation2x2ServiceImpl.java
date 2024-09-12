@@ -12,7 +12,7 @@ package com.automata.testing.framework.algorithm.service;
  * @author GELIBERT
  * @author SEGURA
  */
-public class EncryptRotation13ServiceImpl implements IEncryptionService {
+public class EncryptPermutation2x2ServiceImpl implements IEncryptionService {
     
     // -------------------------------------- Inner classes
     
@@ -37,24 +37,16 @@ public class EncryptRotation13ServiceImpl implements IEncryptionService {
     // -------------------------------------- Protected methods
     
     // -------------------------------------- Public methods
-    
-    
+
+
+    /**
+     * Function to permute characters pairwise for encoding
+     * @param input clear text
+     * @return encoded text
+     */
     @Override
     public String encode(final String input) {
-        if(input == null) throw new RuntimeException("Error empty input not allowed") ;
-        StringBuilder result = new StringBuilder();
-        for (int i = 0; i <= input.toUpperCase().length(); i++) {
-            if (i == 0) {
-                continue;
-            }
-            char c = input.charAt(i - 1);
-            char res = c;
-            if (Character.isAlphabetic(c)) {
-                res = (char) ((c + 13));
-            }
-            result.append(res);
-        }
-        return result.toString();
+        return new DecryptPermuation2x2ServiceImpl().decode(input);
     }
     
     

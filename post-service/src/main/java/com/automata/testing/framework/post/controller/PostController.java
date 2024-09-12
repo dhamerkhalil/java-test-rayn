@@ -10,15 +10,9 @@ import com.automata.testing.framework.post.service.PostServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-/**
- * Dependencies
- */
+import java.util.Optional;
 
 /**
  * Post controller.
@@ -42,13 +36,18 @@ public class PostController {
     /**
      * The post service to use.
      */
-    @Autowired
     private PostServiceImpl postService;
     
     // -------------------------------------- public attributes
     
     // -------------------------------------- Constructor
-    
+
+    @Autowired
+    public PostController(PostServiceImpl postService) {
+        this.postService = postService;
+    }
+
+
     // -------------------------------------- Public static methods
     
     // -------------------------------------- Private static methods
@@ -58,7 +57,7 @@ public class PostController {
     // -------------------------------------- Protected methods
     
     // -------------------------------------- Public methods
-    
+
     /**
      * Rest API for the creation of the post.
      *
@@ -66,7 +65,7 @@ public class PostController {
      * @return the response entity
      */
     @PostMapping(path = "/post")
-    public ResponseEntity<String> createUser(@RequestBody final PostDTO post) {
+    public ResponseEntity<String> createPost(@RequestBody final PostDTO post) {
         log.info("Receiving the post {}", post);
         postService.createPost(post);
         return ResponseEntity.ok().build();
@@ -78,13 +77,34 @@ public class PostController {
      * @param id the identifier
      * @return the response entity
      */
-    @PostMapping(path = "/post/{id}")
-    public ResponseEntity<PostEntity> createUser(@PathVariable(name = "identifier") final Integer id) {
+    @GetMapping(path = "/post/{id}")
+    public ResponseEntity<PostEntity> createPost(@PathVariable(name = "identifier") final Integer id) {
         log.info("Trying to find the post with id {}", id);
-        
-        return ResponseEntity.ok(postService.getPost(id).get());
+        Optional<PostEntity> result = postService.getPost(id);
+        if(result.isPresent()){
+            return ResponseEntity.ok(result.get());
+        }else{
+            return ResponseEntity.notFound().build();
+        }
     }
-    
+
+
+    /**
+     * Rest API to delete a post by its id.
+     *
+     * @param id the identifier
+     * @return the response entity
+     */
+    @DeleteMapping(path = "/post/{id}")
+    public ResponseEntity<PostEntity> deletePost(@PathVariable(name = "identifier") final Integer id) {
+        log.info("Trying to delete the post with id {}", id);
+        Optional<PostEntity> result = postService.getPost(id);
+        if(result.isPresent()){
+            return ResponseEntity.ok(result.get());
+        }else{
+            return ResponseEntity.badRequest().build();
+        }
+    }
     // -------------------------------------- Setters and Getters
     
 }

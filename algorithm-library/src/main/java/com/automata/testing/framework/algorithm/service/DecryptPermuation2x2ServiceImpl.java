@@ -1,29 +1,25 @@
 package com.automata.testing.framework.algorithm.service;
 
-
 /*
  * Copyright: Copyright (c) Automata akt.io 2021-2024.
  * All rights reserved.
  */
 
 /**
- * This is a very simple way to manage the encryption service.
+ * Basic Decryption Management Service Impl
  *
  * @author GELIBERT
- * @author SEGURA
  */
-public class EncryptRotation13ServiceImpl implements IEncryptionService {
+public class DecryptPermuation2x2ServiceImpl implements IDecryptionService {
     
     // -------------------------------------- Inner classes
     
     // -------------------------------------- public static attributes
-    
+
     // -------------------------------------- private static attributes
     
-    // -------------------------------------- Private attributes
-    
     // -------------------------------------- private attributes
-    
+
     // -------------------------------------- public attributes
     
     // -------------------------------------- Constructor
@@ -33,30 +29,29 @@ public class EncryptRotation13ServiceImpl implements IEncryptionService {
     // -------------------------------------- Private static methods
     
     // -------------------------------------- Private methods
-    
     // -------------------------------------- Protected methods
-    
     // -------------------------------------- Public methods
-    
-    
+
+    /**
+     * Function to permute characters pairwise for decoding
+     * @param input encoded text
+     * @return decoded text
+     */
     @Override
-    public String encode(final String input) {
-        if(input == null) throw new RuntimeException("Error empty input not allowed") ;
-        StringBuilder result = new StringBuilder();
-        for (int i = 0; i <= input.toUpperCase().length(); i++) {
-            if (i == 0) {
-                continue;
-            }
-            char c = input.charAt(i - 1);
-            char res = c;
-            if (Character.isAlphabetic(c)) {
-                res = (char) ((c + 13));
-            }
-            result.append(res);
+    public String decode(String input) {
+        if (input == null || input.isEmpty()) {
+            return input;
         }
-        return result.toString();
+        char[] chars = input.toCharArray();
+
+        for (int i = 0; i < chars.length - 1; i += 2) {
+            char temp = chars[i];
+            chars[i] = chars[i + 1];
+            chars[i + 1] = temp;
+        }
+
+        return new String(chars);
     }
-    
     
     // -------------------------------------- Setters and Getters
     

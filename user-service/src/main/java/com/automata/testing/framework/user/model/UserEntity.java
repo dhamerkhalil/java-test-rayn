@@ -8,11 +8,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import lombok.*;
 
 /**
  * Dependencies
@@ -45,21 +43,26 @@ public class UserEntity {
     /**
      * The user first name.
      */
+    @NotBlank(message = "First name is required")
     private String firstName;
     
     /**
      * The user last name.
      */
+    @NotBlank(message = "Last name is required")
     private String lastName;
     
     /**
      * The user email address.
      */
+    @NotBlank(message = "Email address is required")
+    @Email(message = "Invalid email address")
     private String emailAddress;
     
     /**
      * The user password.
      */
+    @NotBlank(message = "Password is required")
     private String password;
     
     // -------------------------------------- public attributes
